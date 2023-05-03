@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+{% if user.is_authenticated %}
+
+{% csrf_token %}
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Zipcode</th>
+      <th scope="col">Created At</th>
+      <th scope="col">Discription</th>
+      <th scope="col">Status</th>
+      <th scope="col">Total Payment</th>
+      <th scope="col">Payment_Status</th>
+      <th scope="col">ID</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    
+{% if leads %}
+	{% for lead in leads %}
+        
+            <tr>
+                <td>{{ lead.first_name }} {{ lead.last_name }}</td>
+                <td>{{ lead.email }}</td>
+                <td>{{ lead.phone }}</td>
+                <td>{{ lead.address }}</td>
+                <td>{{ lead.city }}</td>
+                <td>{{ lead.state }}</td>
+                <td>{{ lead.zipcode }}</td>
+                <td>{{ lead.created_at }}</td>
+                <td>{{ lead.discription }}</td>
+                <td>{{ lead.status }}</td>
+                <td>{{ lead.total_payment }}</td>
+                <td>{{ lead.payment_status }}</td>
+                <td><a href="{% url 'technical_update_lead' lead.id %}">{{ lead.id }}</a></td>
+            </tr>
+        
+	{% endfor %}
+
+{% endif %}
+
+	
+	  </tbody>
+	</table>
+
+
+
+
+
+{% else %}
+
+<div class="col-md-6 offset-md-3">
+<h1>Login</h1>
+<br/>
+
+<form method="POST" action="{% url 'home' %}">
+	{% csrf_token %}
+
+  <div class="mb-3">
+    <input type="text" class="form-control" name="username", placeholder="Username" required>
+    
+  </div><br/>
+  <div class="mb-3">
+    <input type="password" class="form-control" name="password", placeholder="Password" required>
+  </div>
+  <br/>
+  <button type="submit" class="btn btn-secondary">Login</button>
+
+</form>
+
+
+
+{% endif %}
+
+{% endblock %}

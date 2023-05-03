@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<div class="card">
+  <div class="card-header"><strong>
+    	{{ customer_lead.first_name }} 
+		{{ customer_lead.last_name }}</strong>
+  </div>
+  <div class="card-body">
+
+
+
+<p class="card-text">
+<strong>Email: </strong>{{ customer_lead.email }}</p>
+
+<p class="card-text">
+<strong>Phone: </strong>{{ customer_lead.phone }}
+</p>
+
+<p class="card-text">
+<strong>Address: </strong>{{ customer_lead.address }}</p>
+
+<p class="card-text">
+<strong>City: </strong>{{ customer_lead.city }}</p>
+
+<p class="card-text">
+<strong>State: </strong>{{ customer_lead.state }}</p>
+
+<p class="card-text">
+<strong>Zipcode: </strong>{{ customer_lead.zipcode }}</p>
+
+<p class="card-text">
+<strong>Create At: </strong>{{ customer_lead.created_at }}</p>
+
+<p class="card-text">
+<strong>Discription: </strong>{{ customer_lead.discription }}</p>
+
+<p class="card-text">
+  <strong>Status: </strong>{{ customer_lead.status }}</p>
+
+<p class="card-text">
+  <strong>Total_payment: </strong>{{ customer_lead.total_payment }}</p>
+
+<p class="card-text">
+  <strong>Payment_Status: </strong>{{ customer_lead.payment_status }}</p>
+
+<p class="card-text">
+<strong>ID: </strong>{{ customer_lead.id }}</p>
+    
+    
+  </div>
+</div>
+
+<br/><br/>
+<a href="{% url 'adminhome' %}" class="btn btn-secondary">Back</a>
+
+<a href="{% url 'admin_delete_lead' customer_lead.id %}" class="btn btn-danger">Delete</a>
+
+<a href="{% url 'admin_update_lead' customer_lead.id %}" class="btn btn-secondary">Update lead</a>
+		
+
+{% endblock %}
