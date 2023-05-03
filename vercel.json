@@ -1,10 +1,9 @@
 {
-    "version": 2,
     "builds": [
       {
         "src": "dcrm/wsgi.py",
         "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+        "config": { "maxLambdaSize": "15mb", "runtime": "python4.2" }
       }
     ],
     "routes": [
