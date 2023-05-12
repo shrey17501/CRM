@@ -65,9 +65,15 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': 'postgresql://postgres:seAVBvV3HorByyKUoicu@containers-us-west-193.railway.app:5996/railway',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'seAVBvV3HorByyKUoicu',
+        'HOST': 'containers-us-west-193.railway.app',
+        'PORT': 5996,
+    }
+
 }
 
 
