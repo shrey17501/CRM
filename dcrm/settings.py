@@ -66,12 +66,12 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'URL': 'postgresql://postgres:seAVBvV3HorByyKUoicu@containers-us-west-193.railway.app:5996/railway',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'seAVBvV3HorByyKUoicu',
-        'HOST': 'containers-us-west-193.railway.app',
-        'PORT': 5996,
+        'URL': os.getenv('POSTGRES_URL'),
+        'NAME': os.getenv('PGNAME'),
+        'USER': os.getenv('PGUSER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('PGHOST'),
+        'PORT': os.getenv('PGPORT),
     }
 
 }
